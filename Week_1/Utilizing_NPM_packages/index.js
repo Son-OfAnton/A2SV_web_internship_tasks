@@ -17,3 +17,8 @@ console.log(greaterThanThree)
 
 const pairNeighbours = _.chunk(arr1, 2)
 console.log(pairNeighbours)
+
+const debouncedFunc = _.debounce((val) => console.log(val), 1000)
+debouncedFunc('a')
+debouncedFunc('b')
+debouncedFunc('c')
