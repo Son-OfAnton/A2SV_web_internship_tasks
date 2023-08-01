@@ -1,0 +1,17 @@
+{
+  "name": "utilizing_npm_packages",
+  "version": "1.0.0",
+  "description": "Getting hands on experience on usign NPM and packages from it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NPM"
+  ],
+  "author": "Admas Terefe",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
