@@ -1,27 +1,46 @@
-# React + TypeScript + Vite
+# Profile Card App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React app built with TypeScript and Vite that displays profile cards with information about users. This app utilizes core React concepts such as components, props, state, and JSX.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the app locally, follow these steps:
 
-## Expanding the ESLint configuration
+1. Clone the repository to your local machine.
+2. Install the dependencies by running `npm install`.
+3. Start the development server by running `npm run dev`.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The app should now be running on `http://localhost:5173`.
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+The project structure is organized as follows:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- `src/`: Contains the source code for the app.
+  - `components/`: Contains reusable components used to display the profile cards.
+  - `data/`: Contains dummy data for the profile cards.
+  - `App.tsx`: The main component that renders the profile cards.
+- `public/`: Contains static images.
+
+## Components
+
+The app is broken down into the following reusable components:
+
+- `Card`: Renders a profile card with user information.
+- `Avatar`: Displays the user's avatar image.
+- `Info`: Displays the user's name, bio, and website (if available).
+
+## Data
+
+The app uses dummy data for the profile cards. You can find the data in the `data/` directory, where each profile is represented by an object with properties like `name`, `bio`, `avatar`, and `website`.
+
+## Styling
+
+The app is styled using CSS. The main styling file is `App.css`, located in the root directory.
+
+## Features
+
+- Display profile cards with user information.
+- Conditionally show the website only if it exists.
+- Beautiful styling with a clean and modern design.
+
