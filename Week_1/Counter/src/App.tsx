@@ -2,16 +2,17 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 const App: React.FC = () => {
-  const [count, setCount] = useState(0);
-
+  const [count, setCount] = useState<number>(0);
+  
   // Store the initial value and use it later to prevernt re-render
-  const initialCount = useRef(count);
+  const minusButtonRef = useRef<HTMLButtonElement>(null);
+  const plusButtonRef = useRef<HTMLButtonElement>(null);
 
-  function add() {
+  function plus() {
     setCount((prevCount) => prevCount + 1);
   }
 
-  function subtract() {
+  function minus() {
     setCount((prevCount) => prevCount - 1);
   }
 
@@ -22,13 +23,13 @@ const App: React.FC = () => {
 
   return (
     <div className="counter">
-      <button className="counter--minus" onClick={subtract}>
+      <button ref={minusButtonRef} className="counter--minus" onClick={minus}>
         –
       </button>
       <div className="counter--count">
-        <h1>{initialCount.current}</h1>
+        <h1>{count}</h1>
       </div>
-      <button className="counter--plus" onClick={add}>
+      <button ref={plusButtonRef} className="counter--plus" onClick={plus}>
         +
       </button>
     </div>
