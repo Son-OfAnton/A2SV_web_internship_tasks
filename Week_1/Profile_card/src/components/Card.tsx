@@ -6,7 +6,7 @@ import '../styles/App.css'
 
 
 interface CardProps {
-  person: Person
+  person: Person;
 }
 
 

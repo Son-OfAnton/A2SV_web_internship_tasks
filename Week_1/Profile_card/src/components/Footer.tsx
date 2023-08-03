@@ -2,8 +2,6 @@ import '../styles/App.css'
 import { BsTwitter, BsLinkedin, BsGithub } from 'react-icons/bs'
 import { MdEmail } from 'react-icons/md'
 
-
-//Footer.tsx
 import React from 'react';
 
 interface FooterProps {

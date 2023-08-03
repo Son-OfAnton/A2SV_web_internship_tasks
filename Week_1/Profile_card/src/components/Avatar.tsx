@@ -1,12 +1,16 @@
 import '../styles/App.css'
+import pp from "../assets/admas.jpg"
+
+
 
 interface AvatarProps {
-  name: string,
-  photo: any,
-  profession: string
+  name: string;
+  photo: string;
+  profession: string;
 }
 
 const Avatar: React.FC<AvatarProps> = ({name, photo, profession}) => {
+  // console.log(photo)
   return (
     <main className="info">
       <img className="info--photo" src={photo} alt="Admas Terefe" />

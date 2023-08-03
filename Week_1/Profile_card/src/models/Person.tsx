@@ -1,6 +1,6 @@
 export interface Person {
   name: string;
-  photo: any;
+  photo: string;
   profession: string;
   about: string;
   interest: string;

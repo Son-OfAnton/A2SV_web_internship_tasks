@@ -1,8 +1,8 @@
 import '../styles/App.css'
 
 interface InfoProps {
-  about: string,
-  interest: string
+  about: string;
+  interest: string;
 }
 
 const Info: React.FC<InfoProps> = ({about, interest}) => {
