@@ -1,25 +1,22 @@
-import Footer from './Footer';
-import Info from './Info';
+import React from 'react';
 import Avatar from './Avatar';
+import Info from './Info';
 import { Person } from '../models/Person';
-import '../styles/App.css'
 
 
 interface CardProps {
-  person: Person;
+  user: Person;
 }
 
-
-const Card:React.FC<CardProps> = ({person}) => {
-  const { name, photo, profession, about, interest, links } = person; 
+const Card: React.FC<CardProps> = ({ user }) => {
+  const { name, bio, website, avatarUrl } = user;
 
   return (
-    <div>
-      <Avatar name={name} photo={photo} profession={profession}/>
-			<Info about={about} interest={interest}/>
-			<Footer links={links}/>
+    <div className="card">
+      <Avatar avatarUrl={avatarUrl} />
+      <Info name={name} bio={bio} website={website} />
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
