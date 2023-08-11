@@ -15,15 +15,15 @@ const AddTask: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mt-4">
+    <form onSubmit={handleSubmit} className="mt-4 mb-10 text-center">
       <input
         type="text"
         value={title}
         onChange={e => setTitle(e.target.value)}
-        placeholder="Enter task title..."
-        className="px-2 py-1 border rounded"
+        placeholder="Enter a task..."
+        className="lg:w-96 md:w-96 sm:64 px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4"
       />
-      <button type="submit" className="ml-2 bg-blue-500 text-white px-2 py-1 rounded">Add Task</button>
+      <button type="submit" className="ml-2 bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600">Add Task</button>
     </form>
   );
 };

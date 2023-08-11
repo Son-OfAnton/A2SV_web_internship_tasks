@@ -8,7 +8,7 @@ const TaskList: React.FC = () => {
   const dispatch = useDispatch();
 
   const [editingTaskId, setEditingTaskId] = useState<number | null>(null);
-  const [editedTitle, setEditedTitle] = useState('');
+  const [editedTask, setEditedTask] = useState('');
   const [showCompleted, setShowCompleted] = useState(false);
 
   const toggleTaskStatus = (task: Task) => {
@@ -21,11 +21,11 @@ const TaskList: React.FC = () => {
 
   const startEditing = (id: number, title: string) => {
     setEditingTaskId(id);
-    setEditedTitle(title);
+    setEditedTask(title);
   };
 
   const finishEditing = (task: Task) => {
-    dispatch(updateTask({ ...task, title: editedTitle }));
+    dispatch(updateTask({ ...task, title: editedTask }));
     setEditingTaskId(null);
   };
 
@@ -38,40 +38,59 @@ const TaskList: React.FC = () => {
           {showCompleted ? 'Show All Tasks' : 'Show Completed Tasks'}
         </button>
       </div>
+
       {filteredTasks.map(task => (
-        <div key={task.id} className="flex items-center justify-between p-2 border-b">
-          <div className="flex items-center">
+        <div
+          key={task.id}
+          className={`flex items-center justify-between p-2 border-b mb-4 bg-white rounded-lg shadow-xl ${
+            task.completed ? 'bg-gray-200' : ''
+          }`}
+        >
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={() => toggleTaskStatus(task)}
+            className="mr-2"
+          />
+          {editingTaskId === task.id ? (
             <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => toggleTaskStatus(task)}
+              type="text"
+              value={editedTask}
+              onChange={e => setEditedTask(e.target.value)}
             />
-            {editingTaskId === task.id ? (
-              <input
-                type="text"
-                value={editedTitle}
-                onChange={e => setEditedTitle(e.target.value)}
-              />
-            ) : (
-              <div
-                className={`ml-2 cursor-pointer ${task.completed ? 'line-through' : ''}`}
-                onClick={() => toggleTaskStatus(task)}
-              >
-                {task.title}
-              </div>
-            )}
-          </div>
-          <div>
-            {editingTaskId === task.id ? (
-              <button className="text-blue-600 mr-2" onClick={() => finishEditing(task)}>Save</button>
-            ) : (
-              <button className="text-blue-600 mr-2" onClick={() => startEditing(task.id, task.title)}>Edit</button>
-            )}
-            <button className="text-red-600" onClick={() => deleteTask(task.id)}>Delete</button>
-          </div>
+          ) : (
+            <div
+              className={`ml-2 cursor-pointer ${task.completed ? 'line-through' : ''}`}
+              onClick={() => toggleTaskStatus(task)}
+            >
+              {task.title}
+            </div>
+          )}
         </div>
-      ))}
-    </div>
+        <div>
+          {editingTaskId === task.id ? (
+            <button
+              className="text-blue-600 mr-2"
+              onClick={() => finishEditing(task)}
+            >
+              Save
+            </button>
+            ) : (
+            <button
+              className="text-blue-600 mr-2"
+              onClick={() => startEditing(task.id, task.title)}
+            >
+              Edit
+            </button>
+          )}
+          <button className="text-red-600" onClick={() => deleteTask(task.id)}>
+            Delete
+          </button>
+        </div>
+      </div>
+    ))}
+  </div>
   );
 };
 
