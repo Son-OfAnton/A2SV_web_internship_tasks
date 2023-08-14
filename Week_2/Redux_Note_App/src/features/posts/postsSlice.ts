@@ -43,13 +43,25 @@ const postsSlice = createSlice({
         };
       },
     },
-    postUpdated: (state, action: PayloadAction<Post>) => {
-      const { id, title, content, date } = action.payload;
-      const existingPost = state.find((post) => post.id === id);
-      if (existingPost) {
-        existingPost.title = title;
-        existingPost.content = content;
-        existingPost.date = date;
+    postUpdated: {
+      reducer(state, action: PayloadAction<Post>) {
+        const {id, title, content, date} = action.payload 
+        const matchingPost = state.find((post) => post.id === id)
+        if (matchingPost) {
+              matchingPost.title = title;
+              matchingPost.content = content;
+              matchingPost.date = date;
+            }
+      },
+      prepare(updatedId: string, updatedTitle: string, updatedContent: string, updatedDate: Date) {
+        return {
+          payload: {
+            id: updatedId,
+            title: updatedTitle,
+            content: updatedContent,
+            date: updatedDate
+          }
+        }
       }
     },
     postDeleted: (state, action: PayloadAction<string>) => {

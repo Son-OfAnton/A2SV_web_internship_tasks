@@ -23,14 +23,7 @@ const PostList = () => {
 
   const handleSaveEditClick = (postId: string) => {
     if (editedTitle && editedContent) {
-      dispatch(
-        postUpdated({
-          id: postId,
-          title: editedTitle,
-          content: editedContent,
-          date: new Date(),
-        })
-      );
+      dispatch(postUpdated(postId, editedTitle, editedContent, new Date));
 
       setEditingPostId(null);
       setEditedTitle("");
