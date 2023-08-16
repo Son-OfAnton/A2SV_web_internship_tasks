@@ -53,18 +53,21 @@ const BlogList = () => {
         {editingBlogId === blog.id ? (
           <FontAwesomeIcon
             icon={faCheck}
+            data-TestId={`checkBtn`}
             className="text-green-500 cursor-pointer mr-5"
             onClick={() => handleSaveEditClick(blog.id)}
           />
         ) : (
           <FontAwesomeIcon
             icon={faEdit}
+            data-TestId={`editBtn`}
             className="text-blue-500 cursor-pointer mr-5"
             onClick={() => handleEditClick(blog.id)}
           />
         )}
         <FontAwesomeIcon
           icon={faTrash}
+          data-TestId={`trashBtn`}
           className="text-red-500 cursor-pointer ml-2 mr-20"
           onClick={() => handleDeleteClick(blog.id)}
         />
@@ -73,11 +76,13 @@ const BlogList = () => {
         <div>
           <input
             type="text"
+            data-TestId="editedTitleField"
             value={editedTitle}
             onChange={(e) => setEditedTitle(e.target.value)}
             className="block w-3/4 px-4 py-2 mb-2 border rounded focus:outline-none focus:ring focus:ring-blue-500"
           />
           <textarea
+            data-TestId="editedContentField"
             value={editedContent}
             onChange={(e) => setEditedContent(e.target.value)}
             className="block w-3/4 h-40 px-4 py-2 mb-2 border rounded focus:outline-none focus:ring focus:ring-blue-500 resize-none"
@@ -85,15 +90,17 @@ const BlogList = () => {
         </div>
       ) : (
         <div>
-          <h3 className="text-blue-600 text-lg font-semibold mb-2">
+          <h3 
+            data-TestId = "blogTitle"
+            className="text-blue-600 text-lg font-semibold mb-2">
             {blog.title}
           </h3>
-          <p className="text-gray-700 mb-2">
+          <p
+            data-TestId = "blogContent"
+            className="text-gray-700 mb-2">
             {blog.content.substring(0, 100)}
           </p>
           <p className="text-gray-500">
-            {/* {`${blog.date.getDate()}-${blog.date.getMonth() + 1}-${blog.date.getFullYear()}`} */}
-            {/* {blog.date} */}
             {new Date(blog.date).toLocaleDateString('en-GB')}
           </p>
         </div>
