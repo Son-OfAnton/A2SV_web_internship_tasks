@@ -1,3 +1,10 @@
 {
-  "blogs": []
+  "blogs": [
+    {
+      "title": "revise redux",
+      "content": "i am going to revise redux",
+      "date": "Thu Aug 17 2023 14:49:09 GMT+0300 (East Africa Time)",
+      "id": 1
+    }
+  ]
 }
